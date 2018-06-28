@@ -1,0 +1,41 @@
+.header {
+    text-align: center;
+    font-weight: bold;
+    background-color: #0000ff;
+}
+
+.nav {
+    position: relative;
+    font-weight: bolder;
+    text-align: center;
+    background-color: #800080;
+}
+.nav>a{
+    
+    color: rgb(40, 40, 243);
+}
+
+.main {
+    display: inline-block;
+    width: 70%;
+    text-align: center;
+    font-weight: bold;
+    background-color: #ffd700;
+}
+
+.aside {
+    height: 410px;
+    display: inline-block;
+    width: 405px;
+    position: absolute;
+    margin-top: 0px;
+    text-align: center;
+    font-weight: bold;
+    background-color: #808080;
+}
+
+.footer {
+    text-align: center;
+    font-weight: bold;
+    background-color: #00ffff;
+}

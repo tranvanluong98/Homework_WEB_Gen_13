@@ -5,12 +5,18 @@
 }
 
 .menu span {
+    position: relative;
     display: inline-block;
     height: 30px;
     width: 100px;
     line-height: 30px;
     color: #402E2A;
 }
+    /* Khi hiện thêm 1 menu con */
+/* .menu span:hover nav {
+    display: block;
+    position: absolute;
+} */
 
 span:hover {
     cursor: pointer;
@@ -18,12 +24,26 @@ span:hover {
     background-color: #9CD08F;
 }
 
+.menu nav nav {
+    top: 0;
+    left: 100%;
+}
+
+.menu nav {
+    display: none;
+}
+
+.menu span:hover>nav {
+    display: block;
+    position: absolute;
+}
+
 .menu_vertical {
     width: 100px;
 }
 
 .menu_vertical span {
-    border-top: 1px solid #ffffff;
+    border-top: 1px solid #FFFFFF;
     display: block;
 }
 
