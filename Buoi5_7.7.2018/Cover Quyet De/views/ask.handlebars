@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>ASK</title>
+</head>
+<script type="text/javascript">
+    function Text(TextNow, remainText, limitNum) {
+        if (TextNow.value.length > limitNum) {
+            TextNow.value = TextNow.value.substring(0, limitNum);
+        } else {
+            remainText.value = limitNum - TextNow.value.length;
+        }
+    }
+</script>
+
+<body>
+    <h1 class="title-ask">Hãy hỏi cộng đồng một câu hỏi đúng/sai hoặc có/không</h1>
+    <link rel="stylesheet" href="../public/css/style.css">
+    <form action="/question/add" method="POST">
+
+        <textarea name="contentQuestion" onkeydown="Text(this.form.contentQuestion,this.form.countdown,200);" onkeyup='Text(this.form.contentQuestion,this.form.countdown,200);'
+          class="textarea-form"></textarea>
+        <br>
+        <p class="remain-word"> Còn
+            <input class="text-remain" readonly="true" type="text" name="countdown" size="3" value="200"> /200 kí tự</p>
+
+
+        <button type="submit" class="btn-send">Gửi</button>
+
+    </form>
+
+</body>
+
+</html>

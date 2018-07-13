@@ -1,0 +1,96 @@
+<style>
+    .title-nav {
+        border-radius: 5px;
+        background-color: #222;
+        border-color: #080808;
+        color: #888888;
+        display: flex;
+        font-weight: bold;
+        margin-left: 0px;
+        cursor: pointer;
+        height: 63px;
+        line-height: 63px;
+        position: relative;
+
+    }
+
+    .child-menu {
+        padding: 0px 15px;
+        margin-left: 25px;
+        text-decoration: none;
+        color: #888888;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .child-menu:hover {
+        color: #ffffff;
+        background-color: #080808;
+    }
+
+    .stable-link {
+        text-decoration: none;
+        color: #888888;
+        margin-left: 20px;
+    }
+
+    .stable-link:hover {
+        color: #ffffff;
+    }
+
+    .text-question {
+        font-weight: 500;
+        line-height: 1.1;
+        margin-top: 60px;
+        font-size: 40px;
+        text-align: center;
+    }
+
+    .link-vote {
+        text-decoration: none;
+    }
+
+    .other-question {
+        cursor: pointer;
+        position: relative;
+        left: 45%;
+        padding: 10px 16px;
+        font-size: 18px;
+        line-height: 1.3333333;
+        border-radius: 6px;
+        color: #fff;
+        background-color: #5cb85c;
+        border-color: #4cae4c;
+        border: 1px solid transparent;
+    }
+
+    .other-question:hover {
+        background-color: #4cae4c;
+    }
+
+    .vote-btn {
+        display: block;
+        text-align: center;
+        font-size: 25px;
+    }
+
+    .vote {
+        display: block;
+        text-align: center;
+        font-size: 25px;
+    }
+
+    }
+</style>
+
+<div>
+    <h3 class="text-question">{{question.content}}</h3>
+
+
+    <p class="vote">Tổng số: {{totalVote}} vote</p>
+    <p class="vote vote-btn">Yes: {{question.yes}}</p>
+    <p class="vote vote-btn">No: {{question.no}}</p>
+
+    <a href="/" class="link-vote">
+        <button class="other-question btn-result-vote">Xem câu hỏi khác</button>
+    </a>
+</div>

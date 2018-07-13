@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Home</title>
+</head>
+
+<body>
+    <div>
+        <h3 class="text-question">{{question.content}}</h3>
+    </div>
+
+    <div>
+        <a class="link-vote" href="/answer/{{question.id}}/no">
+            <button class="btn-vote no">Sai / Không / Trái
+               
+            </button>
+          
+
+        </a>
+        <a href="/answer/{{question.id}}/yes">
+            <button class="btn-vote yes">Đúng / Có / Phải</button>
+        </a>
+
+    </div>
+
+    <div class="btn-home">
+        <a href="/question/{{question.id}}" class="link-vote">
+            <button class="btn-result-vote">
+                Kết quả vote</button>
+        </a>
+
+        <a href="/" class="link-vote">
+            <button class="btn-result-vote">Câu hỏi khác</button>
+        </a>
+
+    </div>
+</body>
+
+</html>
