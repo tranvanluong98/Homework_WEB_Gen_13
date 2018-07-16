@@ -4,16 +4,13 @@ const questionList = require("./list.json");
 const fs = require('fs');
 const bodyParse = require('body-parser')
 const path = require('path')
-
+const mongoose =  require('mongoose');
 var app = express();
-'use strict';
 
-module.exports.register = function (Handlebars, options, params) {
-    Handlebars.registerHelper('asset', function (filepath) {
-        return path.join(options.assets, filepath).replace(/\\/g, '/');
-    });
+const QuestionModel = require('./models/questionModel')
 
-};
+
+
 
 app.engine('handlebars', hdb({
     defaultLayout: "main"
@@ -56,6 +53,11 @@ app.get('/answer/:idQuestion/:vote', (req, res) => {
     fs.writeFileSync('./list.json', JSON.stringify(questionList))
     res.redirect("/question/" + req.params.idQuestion)
 })
+// Connect db
+mongoose.connect("mongodb://localhost:27017/quyetde",{useNewUrlParser:true} ,(err) => {
+if(err) console.error(err)
+else console.log("Connect db successfully!!")
+})
 
 // Tao duong link api
 
@@ -65,16 +67,24 @@ app.post('/question/add', (req, res) => {
     let newQuestion = {
 
         content: req.body.contentQuestion,
-        yes: 0,
-        no: 0,
-        id: questionList.length
+        // yes: 0,
+        // no: 0,
+        // id: questionList.length
 
     }
-    questionList.push(newQuestion)
-    // Viet new question vao file
-    res.redirect('/question/' + newQuestion.id)
+    QuestionModel.create(newQuestion , (err, questionCreated)=>{
+        if(err) console.log(err)
+        
+        else res.redirect('/question/'+questionCreated._id)
+        // questionList.push(newQuestion)
+        // fs.writeFileSync('./list.json', JSON.stringify(questionList))
+    })
+    // questionList.push(newQuestion)
+    // // Viet new question vao file
+    // fs.writeFileSync('./list.json', JSON.stringify(questionList))
+    // res.redirect('/question/' + newQuestion.id)
 })
 app.listen(8080, (err) => {
     if (err) console.log(err)
-    else console.log('Server run successfully!!');
+    else console.log('Server run successfully at port 8080!!');
 });

@@ -18,15 +18,22 @@
     }
 </script>
 
+{{!-- <script>
+    let char = 200 ;
+    document.getElementById('question').addEventListener("input",function(){
+        document.getElementById('remain').innerText= char - document.getElementById("question").value.length
+    })
+</script> --}}
+
 <body>
     <h1 class="title-ask">Hãy hỏi cộng đồng một câu hỏi đúng/sai hoặc có/không</h1>
     <link rel="stylesheet" href="../public/css/style.css">
     <form action="/question/add" method="POST">
 
-        <textarea name="contentQuestion" onkeydown="Text(this.form.contentQuestion,this.form.countdown,200);" onkeyup='Text(this.form.contentQuestion,this.form.countdown,200);'
+        <textarea id="question" name="contentQuestion" onkeydown="Text(this.form.contentQuestion,this.form.countdown,200);" onkeyup='Text(this.form.contentQuestion,this.form.countdown,200);'
           class="textarea-form"></textarea>
         <br>
-        <p class="remain-word"> Còn
+        <p id="remain" class="remain-word"> Còn
             <input class="text-remain" readonly="true" type="text" name="countdown" size="3" value="200"> /200 kí tự</p>
 
 
